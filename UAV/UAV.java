@@ -23,7 +23,7 @@ public class UAV implements Main{
 	
 	@Override
 	public String toString() {
-	return "UAV [weight=" + weight + ", price=" + price + "]";
+	return "UAV [weight=" + weight + "lbs, price= $" + price + "]";
 	}
 
 
