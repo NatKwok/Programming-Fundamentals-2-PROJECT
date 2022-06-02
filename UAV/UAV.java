@@ -1,5 +1,6 @@
 package UAV;
 
+import Airplane.Airplane;
 import Airplane.Main;
 
 public class UAV implements Main{
@@ -25,6 +26,26 @@ public class UAV implements Main{
 	public String toString() {
 	return "UAV [weight=" + weight + "lbs, price= $" + price + "]";
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		
+		
+		//Attribute Comparison
+		UAV other = (UAV) obj;
+		
+		if (weight != other.weight) {
+			
+			return false;
+		}
+		
+		if (Double.doubleToLongBits(price) != Double.doubleToLongBits(other.price)) {
+			
+			return false;
+		}
+		
+			return true;
+		}
 
 
 	//Default constructor
