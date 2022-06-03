@@ -1,9 +1,8 @@
 package UAV;
 
-import Airplane.Airplane;
-import Airplane.Main;
+import Airplane.Driver;
 
-public class UAV implements Main{
+public class UAV implements Driver {
 
 	public int length;
 	protected double weight;

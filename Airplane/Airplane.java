@@ -1,6 +1,6 @@
 package Airplane;
 
-public class Airplane implements Main{
+public class Airplane implements Driver{
 	
 	 protected String brand;
 	 protected double price;

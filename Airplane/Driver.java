@@ -7,7 +7,7 @@ import Heli_Quad.Quadcopter;
 import Multirotor.Multirotor;
 import UAV.UAV;
 
-public interface Main {
+public interface Driver {
 
 	public static void main(String[] args) {
 		
@@ -53,7 +53,7 @@ public interface Main {
 		System.out.println();
 
 		//CREATE ARRAYS
-		Main arr1[] = new Main[15];
+		Driver arr1[] = new Driver[15];
 		
 		arr1[0] = new Airplane("Boeing", 143525.99, 400);
 		arr1[1]  = new Airplane("Bell", 300000.99, 600);
@@ -70,9 +70,10 @@ public interface Main {
 		arr1[12]  = new UAV(60, 899.99);
 		arr1[13]  = new UAV(60, 899.99);
 		arr1[14]  = new UAV(100, 1299.99);
+		
 
 		
-		Main arr2[] = new Main[15];
+		Driver arr2[] = new Driver[15];
 		
 		arr2[0] = new Airplane("Harrison", 294647.99, 765);
 		arr2[1]  = new Airplane("Bullet", 39452.99, 321);
@@ -90,21 +91,35 @@ public interface Main {
 		arr2[13] =  new Quadcopter(4,4,0,"Aeryon",299.99,20, 50);
 		arr2[14] = new Multirotor(7, 10, 6, "Harriet", 400000.99, 700, 4);
 		
-
-	}
-
-	public default Airplane findLeastAndMostExpensiveUAV() {
-		Airplane[] arr1;
-		Airplane mostExpensive = arr1[0];
 		
-		for (int i=0;i<arr1.length; i++) {
-			
-			if (arr1[i].getPrice() > mostExpensive) {
-				mostExpensive = new Airplane(arr1[i]);
-			}
-			return mostExpensive;
-		}
+		
 	}
+	
+
+
+	public static Driver findLeastAndMostExpensiveUAV(Driver[] arr, int total) {
+		
+		Driver temp;
+		int size;
+		size = arr.length;
+		for (int i = 0; i < size; i++) {  
+			
+		        for (int j = i + 1; j < size; j++) {  
+		        	
+		                if (arr[i] == arr[j]) {  
+		                	
+		                    temp = arr[i];  
+		                    arr[i] = arr[j];  
+		                    arr[j] = temp;  
+		                }  
+		            }  
+		        }  
+		return arr[total-1];  
+		
+	}
+
+
+
 	
 
 
